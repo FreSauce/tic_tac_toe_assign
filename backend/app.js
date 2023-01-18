@@ -5,6 +5,9 @@ const morgan = require("morgan");
 const gameRoutes = require("./routes/game");
 const authRoutes = require("./routes/auth");
 const { app, io, server, express } = require("./server");
+
+const PORT = process.env.PORT || 8080;
+
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
@@ -44,8 +47,8 @@ mongoose
   .set("strictQuery", true)
   .connect(process.env.MONGODB_URI)
   .then((result) => {
-    server.listen(8080, () => {
-      console.log("Server is running on port 8080");
+    server.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
     });
   })
   .catch((err) => {

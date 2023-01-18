@@ -11,7 +11,13 @@ const Header = ({ subTitle, title, backAction }) => {
         padding: "5px",
       }}
     >
-      <FaChevronLeft size={"24px"} onClick={() => navigate(-1)} />
+      <FaChevronLeft
+        style={{
+          cursor: "pointer",
+        }}
+        size={"24px"}
+        onClick={backAction ? backAction : () => navigate("/")}
+      />
       <div
         style={{
           paddingTop: "3.5rem",

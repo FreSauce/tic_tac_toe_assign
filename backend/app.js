@@ -26,6 +26,10 @@ app.use((error, req, res, next) => {
   });
 });
 
+app.get("./", (req, res) => {
+  res.send("Server is running");
+});
+
 io.on("connection", (socket) => {
   console.log("New client connected");
   try {

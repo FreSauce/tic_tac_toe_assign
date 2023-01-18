@@ -14,7 +14,7 @@ const NewGameButton = () => {
           boxShadow: "2px 2px 16px rgba(0, 0, 0, 0.16)",
           width: "124px",
           height: "40px",
-          position: "absolute",
+          position: "fixed",
           bottom: "24px",
           right: "24px",
           fontWeight: "bold",

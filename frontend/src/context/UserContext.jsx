@@ -22,11 +22,11 @@ const UserContextProvider = ({ children }) => {
         password,
       })
       .then((res) => {
-        return res.data;
+        return true;
       })
       .catch((err) => {
         console.log(err);
-        return err;
+        return false;
       });
   };
 

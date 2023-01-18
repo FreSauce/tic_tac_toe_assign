@@ -1,9 +1,10 @@
-const OPiece = ({ sz }) => {
+const OPiece = ({ sz, center }) => {
   return (
     <div
       style={{
         width: sz,
         height: sz,
+        margin: center ? "auto" : "0",
       }}
     >
       <svg viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -9,7 +9,7 @@ import { UserContext } from "../context/UserContext";
 
 const NewGame = () => {
   const navigate = useNavigate();
-  const { createGame } = useContext(UserContext);
+  const { user, createGame } = useContext(UserContext);
   const formRef = useRef(null);
   const [userForm, setUserForm] = useState({
     email: "",
@@ -57,8 +57,10 @@ const NewGame = () => {
         backgroundColor="#F2C94C"
         color="white"
         onClick={() => {
-          console.log(formRef.current);
-          formRef.current.requestSubmit();
+          if (userForm.email !== user.email) {
+            console.log(formRef.current);
+            formRef.current.requestSubmit();
+          }
         }}
       >
         Start Game

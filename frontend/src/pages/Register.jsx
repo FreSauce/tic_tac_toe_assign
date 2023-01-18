@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Container from "../components/Container";
 import Content from "../components/Content";
@@ -8,6 +9,11 @@ import Notification from "../components/Notification";
 import { UserContext } from "../context/UserContext";
 
 const Register = () => {
+  const [notification, setNotification] = useState({
+    text: "",
+    backgroundColor: "transparent",
+  });
+  const navigate = useNavigate();
   const { signup } = useContext(UserContext);
   const formRef = useRef(null);
   const [userForm, setUserForm] = useState({
@@ -27,6 +33,20 @@ const Register = () => {
       userForm.password
     ).then((res) => {
       console.log(res);
+      if (res) {
+        setNotification({
+          text: "Congratulations! Account created successfully.",
+          backgroundColor: "#6FCF97",
+        });
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+      } else {
+        setNotification({
+          text: "Failed to create account. Username or email already exists.",
+          backgroundColor: "#EB5757",
+        });
+      }
     });
   };
 
@@ -64,10 +84,7 @@ const Register = () => {
           })}
         </form>
       </Content>
-      <Notification
-        color={"white"}
-        content={"Congratulations!!! Account created."}
-      />
+      <Notification content={notification} />
       <Button
         backgroundColor="#F2C94C"
         color="white"

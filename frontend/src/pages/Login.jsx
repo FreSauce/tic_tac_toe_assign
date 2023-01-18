@@ -28,7 +28,7 @@ const Login = () => {
       console.log(res);
       if (res) {
         setNotification({
-          text: "Congratulations!!! Account created.",
+          text: "Successfully logged in!.",
           backgroundColor: "#6FCF97",
         });
         setTimeout(() => {

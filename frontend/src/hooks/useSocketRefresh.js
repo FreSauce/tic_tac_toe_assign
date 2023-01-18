@@ -28,6 +28,11 @@ const useSocketRefresh = (callbackFn, gameId, userId) => {
       callbackFn();
     });
 
+    // socket.on("game-update", () => {
+    //   console.log("gameUpdate");
+    //   callbackFn();
+    // });
+
     // return () => {
     //   socket.off("connect");
     //   socket.off("disconnect");

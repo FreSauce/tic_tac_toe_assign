@@ -4,9 +4,11 @@ import UserContextProvider from "./context/UserContext";
 
 function App() {
   return (
-    <UserContextProvider>
-      <Outlet />
-    </UserContextProvider>
+    <div className="App">
+      <UserContextProvider>
+        <Outlet />
+      </UserContextProvider>
+    </div>
   );
 }
 

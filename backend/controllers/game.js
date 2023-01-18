@@ -128,7 +128,6 @@ exports.updateGame = (req, res, next) => {
     game
       .save()
       .then((game) => {
-        // console.log(io.sockets.adapter.rooms);
         io.emit("gameUpdate");
         res
           .status(200)

@@ -123,7 +123,7 @@ const GameBoard = () => {
                 color: "#333333",
               }}
             >
-              Game with {opponent} {isConnected ? "🟢" : "🔴"}
+              Game with {opponent}
             </h1>
             <h3
               style={{
@@ -162,18 +162,21 @@ const GameBoard = () => {
                           className={border(col)}
                           key={col}
                           onClick={() => handleClick(col)}
+                          style={{
+                            cursor: isMyTurn ? "pointer" : "not-allowed",
+                          }}
                         >
                           {displayBoard[col] === 1 ? (
                             isPlayer1 ? (
-                              <XPiece sz="100px" />
+                              <XPiece sz="100px" center={true} />
                             ) : (
-                              <OPiece sz="100px" />
+                              <OPiece sz="100px" center={true} />
                             )
                           ) : displayBoard[col] === 2 ? (
                             isPlayer1 ? (
-                              <OPiece sz="100px" />
+                              <OPiece sz="100px" center={true} />
                             ) : (
-                              <XPiece sz="100px" />
+                              <XPiece sz="100px" center={true} />
                             )
                           ) : null}
                         </td>
